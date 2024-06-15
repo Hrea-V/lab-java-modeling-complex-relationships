@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Calendar;
 
 @Data
-@Table(name = "members")
+@Table(name = "member")
 @NoArgsConstructor
 @Entity
 public class Member {
@@ -21,7 +21,7 @@ public class Member {
     private Calendar renewalDate;
 
     @ManyToOne
-    @JoinColumn(name = "chapter_id")
+    @JoinColumn(name = "chapter_id", referencedColumnName = "id")
     private Chapter chapter;
 
     public Member(String name, MemberStatus status, Calendar renewalDate, Chapter chapter) {

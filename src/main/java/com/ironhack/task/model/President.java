@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @Data
-@Table(name = "presidents")
+@Table(name = "president")
 @NoArgsConstructor
 @Entity
 public class President {
@@ -18,7 +18,7 @@ public class President {
     private Long id;
     private String name;
     @OneToOne
-    @JoinColumn(name = "chapter_id")
+    @JoinColumn(name = "chapter_id", referencedColumnName = "id")
     private Chapter chapter;
 
 

@@ -11,8 +11,8 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "events_conferences")
-public class EventConferences {
+@Table(name = "eventsConference")
+public class EventConference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,13 +21,13 @@ public class EventConferences {
     private String location;
     private String title;
 
-    @OneToMany(mappedBy = "event_conferences")
-    private List<GuestConferences> guestConferences;
+    @OneToMany(mappedBy = "eventConference")
+    private List<GuestConference> guestConferences;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "eventConference")
     private List<Speaker> speakers;
 
-    public EventConferences(Calendar date, Integer duration, String location, String title, List<GuestConferences> guestConferences, List<Speaker> speakers) {
+    public EventConference(Calendar date, Integer duration, String location, String title, List<GuestConference> guestConferences, List<Speaker> speakers) {
         this.date = date;
         this.duration = duration;
         this.location = location;

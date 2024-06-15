@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-@Table(name = "guests_expositions")
-public class GuestExpositions {
+@Table(name = "guestsExposition")
+public class GuestExposition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,13 +17,13 @@ public class GuestExpositions {
     private GuestStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "event_expositions_id")
-    private EventExpositions event;
+    @JoinColumn(name = "eventExposition_id", referencedColumnName = "id")
+    private EventExposition eventExposition;
 
 
-    public GuestExpositions(String name, GuestStatus status, EventExpositions event) {
+    public GuestExposition(String name, GuestStatus status, EventExposition eventExposition) {
         this.name = name;
         this.status = status;
-        this.event = event;
+        this.eventExposition = eventExposition;
     }
 }

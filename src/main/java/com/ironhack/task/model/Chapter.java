@@ -22,9 +22,8 @@ public class Chapter {
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Member> members;
 
-    public Chapter(String name, President president, List<Member> members) {
+    public Chapter(String name, List<Member> members) {
         this.name = name;
-        this.president = president;
         this.members = members;
     }
 }
