@@ -16,15 +16,15 @@ public class Chapter {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "chapter")
-    private List<President> presidents;
+    @OneToOne(mappedBy = "chapter")
+    private President president;
 
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Member> members;
 
-    public Chapter(String name, List<President> presidents, List<Member> members) {
+    public Chapter(String name, President president, List<Member> members) {
         this.name = name;
-        this.presidents = presidents;
+        this.president = president;
         this.members = members;
     }
 }

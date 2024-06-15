@@ -17,9 +17,10 @@ public class President {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "chapter_id")
     private Chapter chapter;
+
 
 
     public President(String name, Chapter chapter) {
